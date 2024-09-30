@@ -2,10 +2,11 @@ public class Sandbox {
 
     public static void main(String[] args) {
 
-        Bank bank = new Bank(50000f);
-        Person person = new Person(bank, 50, 50);
+        Bank bank = new Bank(50000);
+        Person person = new Person(bank);
         // System.out.println(person.cash());
 
-        person.cash(40f);
+        person.cash(40);
+        person.deposit(800);
     }
 }

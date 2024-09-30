@@ -1,16 +1,16 @@
 public class Bank {
+    private double balance; //Saldo da conta (privado, so pode ser acessado na propria classe)
 
-    private double balance;
-
-    public Bank(double balance) {
-
-        this.balance = balance;
+    public Bank(double balance) { //Construtor
+        this.balance = balance; //diferencia o parâmetro balance do atributo balance da classe
     }
+
     public double getBalance() {
         return balance;
-    }
+    } //Verifica saldo
+
     public double cash(double withdraw) {
-        if (balance > withdraw) {
+        if (balance >= withdraw) {
             System.out.println("Ok! Podes levantar dinheiro, o teu saldo é: " + (balance - withdraw ));
             return balance -= withdraw;
         } else {
@@ -20,7 +20,8 @@ public class Bank {
     }
 
     public double deposit(double cashDeposit) {
-        System.out.println("Já está! " + (balance += cashDeposit));
+        balance += cashDeposit;
+        System.out.println("Já está! O deposito foi realizado e o saldo total é: " + balance);
         return balance += cashDeposit;
     }
 }
