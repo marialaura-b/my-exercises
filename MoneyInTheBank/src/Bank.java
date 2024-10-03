@@ -19,9 +19,13 @@ public class Bank {
         }
     }
 
-    public double deposit(double cashDeposit) {
-        balance += cashDeposit;
-        System.out.println("Já está! O deposito foi realizado e o saldo total é: " + balance);
-        return balance += cashDeposit;
+    public void deposit(double cashDeposit) {
+        if (cashDeposit > 0) {
+            balance += cashDeposit;
+            System.out.println("Já está! O deposito foi realizado e o saldo total é: " + balance);
+            return; //balance += cashDeposit;
+        }
+        System.out.println("Quantidade invalida para depósito.");
+        return;
     }
 }
