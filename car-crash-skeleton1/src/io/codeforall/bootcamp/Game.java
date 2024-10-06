@@ -6,15 +6,19 @@ import io.codeforall.bootcamp.field.Field;
 
 public class Game {
 
-    public static final int MANUFACTURED_CARS = 20;
+    public static final int MANUFACTURED_CARS = 10;
 
-    /** Container of Cars */
+    /**
+     * Container of Cars
+     */
     private Car[] cars;
 
-    /** Animation delay */
+    /**
+     * Animation delay
+     */
     private int delay;
 
-    public Game(int cols, int rows, int delay) {
+    public Game(int cols, int rows, int delay) { //Metodo construtor da classe Game
 
         Field.init(cols, rows);
         this.delay = delay;
@@ -27,10 +31,10 @@ public class Game {
     public void init() {
 
         cars = new Car[MANUFACTURED_CARS];
-        for (int i = 0; i < cars.length; i++){
+        for (int i = 0; i < cars.length; i++) {
             cars[i] = CarFactory.getNewCar(i);
-            System.out.println(i);
-            System.out.println(cars[i]);
+            //System.out.println(i);
+            //System.out.println(cars[i]);
         }
         Field.draw(cars);
 
@@ -59,7 +63,17 @@ public class Game {
     }
 
     private void moveAllCars() {
-    // Switch e if depois
-    }
 
+        for (int i = 0; i < cars.length; i++) {
+            for (int j = 0; j < cars.length; j++) {
+                if (i != j && cars[i].getPos().getRow() == cars[j].getPos().getRow() &&
+                        cars[i].getPos().getCol() == cars[j].getPos().getCol()) {
+                    cars[i].setIsCrashed(true);
+                }
+                if (!cars[i].isCrashed()) {
+                    cars[i].moveRandom();
+                }
+            }
+        }
+    }
 }

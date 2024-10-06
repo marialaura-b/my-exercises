@@ -60,13 +60,13 @@ public final class Field {
 
             if (!c.isCrashed()) {
                 screenWriter.drawString(c.getPos().getCol(), c.getPos().getRow(), c.toString());
-                System.out.println("-----------------------------------------------");
+                /*System.out.println("-----------------------------------------------");
                 System.out.println(c.toString());
                 System.out.println(c.getPos());
-                System.out.println("------------------------------------------------car not crashed");
+                System.out.println("------------------------------------------------car not crashed");*/
             } else {
                 screen.putString(c.getPos().getCol(), c.getPos().getRow(), c.toString(), Terminal.Color.WHITE, Terminal.Color.RED, ScreenCharacterStyle.Blinking);
-                System.out.println("-----------------------------------------------");
+                //System.out.println("-----------------------------------------------");
             }
 
         }

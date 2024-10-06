@@ -1,19 +1,16 @@
 package io.codeforall.bootcamp.cars;
 
-import io.codeforall.bootcamp.field.Field;
-import io.codeforall.bootcamp.field.Position;
-
 public class CarFactory {
 
-
-
-    public static Car getNewCar(int position) {
+    public static Car getNewCar(int i) {
         int newCar = (int) (Math.random() * 2);
         //System.out.println("Fiat");
         if (newCar == 0) {
-            return new Fiat(position,position);
+            System.out.println(newCar);
+            return new Tesla();
         } else {
-            return new Mustang(position,position);
+            System.out.println(newCar);
+            return new Mercedes();
         }
     }
 
