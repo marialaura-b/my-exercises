@@ -6,7 +6,7 @@ import io.codeforall.bootcamp.field.Field;
 
 public class Game {
 
-    public static final int MANUFACTURED_CARS = 10;
+    public static final int MANUFACTURED_CARS = 20;
 
     /**
      * Container of Cars
