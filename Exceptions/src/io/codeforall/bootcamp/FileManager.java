@@ -2,36 +2,59 @@ package io.codeforall.bootcamp;
 
 public class FileManager {
 
-    private boolean isTrue = true;
+    private boolean isLoggedIn = false;
 
-    private boolean isFalse = false;
+    private File[] files;
 
-    private String name;
+    private int filesCreated;
 
-    private String user = "Maria";
+    private int MAX_FILES = 5;
 
-    private String pass = "123";
-
-    public FileManager(String user, String pass) {
-        this.user = user;
-        this.pass = pass;
+    public FileManager() {
+        this.isLoggedIn = false;
+        this.filesCreated = 0;
+        this.files = new File[MAX_FILES];
     }
-
-    public boolean login(){
-        return isTrue;
-    }
-
-    public boolean logout(){
-        return isFalse;
-    }
-
-    public File getFile(String name) {
-        File file = new File("NameFile");
-        return file;
+    public void login(){
+        isLoggedIn = true;
+        System.out.println("Loggin status: " + isLoggedIn);
 
     }
 
-    public void createFile(String name){
-        return;
+    public void logout(){
+        isLoggedIn = false;
+        System.out.println("Loggin status: " + isLoggedIn);
+    }
+
+    public void createFile(String fileName) throws FileException {
+        //System.out.println("File created: ");
+        if (!isLoggedIn) {
+            System.out.println("NOT");
+            throw new NotEnoughPermissionsException();
+        }
+        if (files.length == filesCreated) {
+            //System.out.println(files.length);
+            throw new NotEnoughSpaceException();
+        }
+
+        System.out.println("File created: " + fileName);
+        files[filesCreated] = new File(fileName);
+        filesCreated++;
+    }
+
+    public File getFile(String fileName) throws FileException {
+        if (!isLoggedIn) {
+            System.out.println("Not enough permissions");
+            throw new NotEnoughPermissionsException();
+        }
+
+        for (int i = 0; i < filesCreated; i++ ) {
+            System.out.println(files[filesCreated]);
+            if (files[i].getName().equals(fileName)) {
+                return files[i];
+            }
+        }
+        throw new FileNotFoundException();
     }
 }
+
