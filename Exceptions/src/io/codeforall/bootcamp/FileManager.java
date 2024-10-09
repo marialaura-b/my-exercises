@@ -50,6 +50,8 @@ public class FileManager {
 
         for (int i = 0; i < filesCreated; i++ ) {
             System.out.println(files[filesCreated]);
+            // .equals() compares string value
+            // == compares obj reference
             if (files[i].getName().equals(fileName)) {
                 return files[i];
             }

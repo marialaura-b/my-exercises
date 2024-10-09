@@ -28,7 +28,7 @@ public class Garden implements KeyboardHandler {
         //  - x-coordinate: 20 pixels
         //  - y-coordinate: 20 pixels
         //  - image path: "rsc/flor.jpg" (assuming the image is located in a folder named "rsc")
-        picture = new Picture(20,20,"rsc/tulipa.png");
+        picture = new Picture(5,5,"rsc/flower.jpeg");
 
         // Draw the picture on screen: This line displays the picture on the screen.
         picture.draw();
@@ -52,6 +52,14 @@ public class Garden implements KeyboardHandler {
         // Add the event listener to the keyboard: This line tells the keyboard to listen for the
         // defined event (right arrow press) and call the `keyPressed` method when it happens.
         keyboard.addEventListener(moveRight);
+
+        KeyboardEvent moveLeft = new KeyboardEvent();
+        moveLeft.setKey(KeyboardEvent.KEY_LEFT); // Set the key to be listened for (right arrow)
+        moveLeft.setKeyboardEventType(KeyboardEventType.KEY_PRESSED); // Set the event type to key press
+
+        // Add the event listener to the keyboard: This line tells the keyboard to listen for the
+        // defined event (right arrow press) and call the `keyPressed` method when it happens.
+        keyboard.addEventListener(moveLeft);
     }
 
     // Method to handle key press events: This method is called by the SimpleGraphics library

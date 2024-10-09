@@ -10,11 +10,11 @@ public class Main {
             //fileManager.logout();
 
             fileManager.createFile("file1.txt");
-            /*fileManager.createFile("file2");
             fileManager.createFile("file2");
-            fileManager.createFile("file2");
-            fileManager.createFile("file2");*/
-            fileManager.createFile("file2");
+            /*fileManager.createFile("file3");
+            fileManager.createFile("file4");
+            fileManager.createFile("file5");
+            fileManager.createFile("file6");*/
 
             File file = fileManager.getFile("file1");
             System.out.println("File found: " + file.getName());

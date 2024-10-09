@@ -12,7 +12,7 @@ public class Fan implements KeyboardHandler {
     private Picture picture;
 
     public Fan(){
-        picture = new Picture(20, 20, "rsc/fan.jpg");
+        picture = new Picture(2, 2, "rsc/fan.jpg");
         picture.draw();
 
         initKeyboard();

@@ -18,10 +18,10 @@ public class Main {
         //  - 10: y-coordinate of the top-left corner.
         //  - 1000: width of the rectangle.
         //  - 1000: height of the rectangle.
-        Rectangle rectangle = new Rectangle(10, 10, 1000, 1000);
+        Rectangle rectangle = new Rectangle(10, 10, 500, 500);
 
         // Set the color of the rectangle: This line sets the color of the rectangle to red.
-        rectangle.setColor(Color.YELLOW);
+        rectangle.setColor(Color.LIGHT_GRAY);
 
         // Fill the rectangle: This line fills the rectangle with the previously set color (red).
         rectangle.fill();
