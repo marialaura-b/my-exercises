@@ -3,6 +3,7 @@ package io.codeforall.bootcamp;
 public class LinkedList {
 
     private Node head;
+
     private int length = 0;
 
     public LinkedList() {
@@ -13,7 +14,7 @@ public class LinkedList {
         return length;
     }
 
-    //private Node first;
+
 
 
     /**
@@ -40,21 +41,17 @@ public class LinkedList {
      * @param index the index of the element
      */
     public Object get(int index) {
-
         int count = -1;
         Node current = head;
         while (current != null) {
-
             if (count != index) {
                 current = current.getNext();
                 count++;
                 continue;
             }
             return current.getData();
-
         }
         return null;
-
     }
 
     /**
@@ -67,17 +64,13 @@ public class LinkedList {
         int count = 0;
         Node current = head;
         while (current.getNext() != null) {
-
             current = current.getNext();
-
             if (current.getData() != data) {
                 count++;
                 continue;
             }
             return count;
-
         }
-
         return -1;
     }
 
