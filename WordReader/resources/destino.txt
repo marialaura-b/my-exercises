@@ -1,0 +1,15 @@
+Eu tento compilar, mas só dá erro
+O código quebra e eu desespero
+Classe vazia, objeto perdido
+O console grita: "Você tá falido!"
+
+Tentando entender essa sintaxe cruel
+Parece uma língua vinda do além
+Quem disse que Java era coisa de fácil?
+É só dor e sofrimento também
+
+Refrão
+Sem saber programar, eu vou chorar
+A tela preta não quer ajudar
+Erro após erro, eu só sei falhar
+Será que um dia eu vou compilar?
