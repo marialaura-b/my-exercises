@@ -8,36 +8,35 @@ import java.io.IOException;
 
 public class WordReader implements Iterable<String> {
 
-    private String filePath;
+    private String filePath; //Armazena o caminho do arquivo
 
-    private String[] words;
+    private String[] words; //Armazena as palavras lidas
 
     public WordReader(String filePath) {
-        this.filePath = filePath;
+        this.filePath = filePath; // Atribui o caminho do arquivo à variável de instância.
         try {
-            this.readFileByLine(filePath);
+            this.words = this.readFileByLine(filePath);
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
     }
-
-    private String readFileByLine(String file) throws IOException {
+    // Lança uma exceção IOException se houver um erro ao acessar o arquivo
+    private String[] readFileByLine(String file) throws IOException {
         // create a new file reader
         FileReader reader = new FileReader(file);
         // wrap the file reader using a buffered reader
         BufferedReader bReader = new BufferedReader(reader);
-
+        //Inicializa Strings vazias
         String line = "";
         String result = "";
         // using the buffered reader we can read lines
         while ((line = bReader.readLine()) != null) {
-            result += line + "\n";
+            result += line + "\n"; // Adiciona a linha lida à string result, seguida de uma quebra de linha
         }
         bReader.close();
 
-        this.words = result.split(" ");
+        return result.split(" ");
 
-        return result;
     }
         @Override
         public Iterator<String> iterator () {

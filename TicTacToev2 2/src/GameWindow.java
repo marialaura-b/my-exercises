@@ -53,8 +53,8 @@ public class GameWindow implements MouseHandler {
         }
 
         // Display the score at the top of the grid
-        Picture picture = new Picture(1015, 375, "/home/my-exercises/TicTacToev2 2/rsc/scoreboard.png");
-        picture.draw();
+        //Picture picture = new Picture(1015, 375, "/home/my-exercises/TicTacToev2 2/rsc/scoreboard.png");
+        //picture.draw();
         scoreBoard1 = new Text(PADDING + 1150, PADDING + 604, player1Wins + "");
         scoreBoard2 = new Text(PADDING + 1370, PADDING + 604, player2Wins + "");
         scoreBoard1.grow(40, 60);  // Adjust size for visibility
@@ -87,7 +87,7 @@ public class GameWindow implements MouseHandler {
         int col = (x - PADDING) / cellSize; // Adjust to account for padding
 
         // Check if the move is valid and update the game board
-        if (row >= 0 && row < 3 && col >= 0 && col < 3 && game.makeMove(row, col)) {
+        /*if (row >= 0 && row < 3 && col >= 0 && col < 3 && game.makeMove(row, col)) {
             drawBoard();
 
             // Check for a winner or draw
@@ -109,7 +109,7 @@ public class GameWindow implements MouseHandler {
                 gameOver = true;// Set game over
                 delayReset();
             }
-        }
+    }*/
     }
 
     private void drawGrid() {
@@ -128,7 +128,7 @@ public class GameWindow implements MouseHandler {
         }
 
         // Draw the pretty grid as a picture on top
-        Picture background = new Picture(PADDING,PADDING, "/home/my-exercises/TicTacToev2 2/rsc/Background.jpg");
+        /*Picture background = new Picture(PADDING,PADDING, "/home/my-exercises/TicTacToev2 2/rsc/Background.jpg");
         background.draw();
         Picture title = new Picture(975,100, "/home/my-exercises/TicTacToev2 2/rsc/Title.png");
         title.draw();
@@ -229,4 +229,4 @@ public class GameWindow implements MouseHandler {
             resetGame();
         }).start();
     }
-}
+}*/
