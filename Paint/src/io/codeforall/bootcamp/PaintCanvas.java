@@ -1,5 +1,6 @@
 package io.codeforall.bootcamp;
 
+import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
@@ -24,10 +25,12 @@ public class PaintCanvas implements KeyboardHandler {
             for (int linha = 0; linha < rows; linha++) {
                 rectangle[coluna][linha] = new Block(coluna, linha);
                 rectangle[coluna][linha].getBlock().draw();
+                rectangle[coluna][linha].getBlock().setColor(Color.BLUE);
             }
         }
         cursor = new Block(0, 3);
         cursor.getBlock().fill();
+        cursor.getBlock().setColor(Color.CYAN);
         setupKeyboard();
     }
 
@@ -49,6 +52,9 @@ public class PaintCanvas implements KeyboardHandler {
         }
     }
 
+    public void printClear(){
+
+    }
     @Override
     public void keyReleased(KeyboardEvent keyboardEvent) {
 
