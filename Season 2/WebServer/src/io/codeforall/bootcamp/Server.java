@@ -43,7 +43,7 @@ public class Server {
                     }
                     //Se o caminho for uma imagem (exemplo: image.png)
                     else if (filePath.equals("logo.png")) {
-                        sendImageResponse(output, "/Users/codecadet/my-exercises/Season 2/WebServer/www/logo.png");
+                        sendImageResponse(output, "image/<image_file_extension>\r\n");
                     }
                     // Caso contrário, envia 404
                     else {
