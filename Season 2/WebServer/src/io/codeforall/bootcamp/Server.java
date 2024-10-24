@@ -39,11 +39,11 @@ public class Server {
                     String filePath = path.substring(1);
                     // Se o caminho for um arquivo HTML
                     if (filePath.equals("index.html")) {
-                        sendResponse(output, "index/html", "Olá, mundo! Este é um arquivo HTML.");
+                        sendResponse(output, "text/html", "Olá, mundo! Este é um arquivo HTML.");
                     }
                     //Se o caminho for uma imagem (exemplo: image.png)
                     else if (filePath.equals("logo.png")) {
-                        sendImageResponse(output, "image/<image_file_extension>\r\n");
+                        sendImageResponse(output, "image/png");
                     }
                     // Caso contrário, envia 404
                     else {
