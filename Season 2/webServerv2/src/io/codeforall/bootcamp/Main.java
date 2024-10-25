@@ -10,7 +10,7 @@ public class Main {
 
         int port = 8080;
 
-        try (ServerSocket serverSocket = new ServerSocket(port)){//é usado para aceitar conexões de entrada de clientes, permitindo que o servidor se comunique com os clientes que se conectarem a essa porta.
+        try (ServerSocket serverSocket = new ServerSocket(port)){ //é usado para aceitar conexões de entrada de clientes, permitindo que o servidor se comunique com os clientes que se conectarem a essa porta.
             System.out.println("Servidor escutando na porta " + port);
 
             while (true) {
@@ -20,7 +20,7 @@ public class Main {
                     BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
                     OutputStream outputStream = clientSocket.getOutputStream();
 
-                    String requestLine = in.readLine(); //requestline recebe o result do metodo
+                    String requestLine = in.readLine(); // requestline recebe o result do metodo
 
                     if (requestLine == null) {
                         continue; // Caso a linha de requisição seja nula, pula para a próxima iteração
