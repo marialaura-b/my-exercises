@@ -9,31 +9,36 @@ import io.codeforall.bootcamp.bqueue.BQueue;
 public class Consumer implements Runnable {
 
     private final BQueue<Pizza> queue;
-    private int pizzasToConsume;
+    private int elementNum;
     private int pizzasConsumed;
 
     /**
      * @param queue the blocking queue to consume elements from
      * @param elementNum the number of elements to consume
      */
-    public Consumer(BQueue queue, int elementNum) {
+    public Consumer(BQueue<Pizza> queue, int elementNum) {
         this.queue = queue;
-        this.pizzasToConsume = elementNum;
+        this.elementNum = elementNum;
+        this.pizzasConsumed = 0;
     }
 
     @Override
     public void run() {
 
-        while (pizzasConsumed < pizzasToConsume) {
-            queue.poll();
-            System.out.println(Thread.currentThread().getName() + " ate a(n) " + queue.poll());
-        }
+        while (pizzasConsumed < elementNum) {
+            try {
+                Thread.sleep((long) (Math.random() * 5000));
+            } catch (InterruptedException e) {
 
-        System.out.println(Thread.currentThread().getName() + " have eaten his " + pizzasToConsume + " pizzas.");
+            }
+
+            Pizza pizza = queue.poll();
+            pizzasConsumed++;
+        }
+            System.out.println(Thread.currentThread().getName() + " is finished consuming.");
     }
 
+    /*public int getElementNum() {
+        return this.elementNum;
+    }*/
 }
-
-
-
-

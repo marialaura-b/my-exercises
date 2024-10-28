@@ -10,9 +10,8 @@ import java.util.Queue;
  */
 public class BQueue<T> {
 
-    private Queue<T> queue = new LinkedList<>();
-    private int limit;
-
+    private final Queue<T> queue; //= new LinkedList<>();
+    private final int limit;
 
     /**
      * Constructs a new queue with a maximum size
@@ -20,10 +19,8 @@ public class BQueue<T> {
      * @param limit the queue size
      */
     public BQueue(int limit) {
+        this.queue = new LinkedList<>();
         this.limit = limit;
-
-        //  throw new UnsupportedOperationException();
-
     }
 
     /**
@@ -31,30 +28,26 @@ public class BQueue<T> {
      * Blocking operation if the queue is full
      *
      * @param data the data to add to the queue
+     * @return
      */
     public synchronized void offer(T data) {
 
-        while (getSize() == getLimit()) {
+        while (getSize() == limit) {
             try {
                 System.out.println("There Bqueue is full!" + Thread.currentThread().getName() + " must wait to add a pizza.");
                 wait();
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                // e.printStackTrace();
             }
         }
-        //System.out.println(getSize() + " pizzas no balcao");
-        //System.out.println(queue.offer(data));
-        System.out.println("Pizza added to the BQueue, it contains: " + getSize() + " pizzas.");
-        System.out.println(queue.offer(data));
+
+        System.out.println(Thread.currentThread().getName() + "produced a pizza.");
+
+        this.queue.offer(data);
         notifyAll();
 
-
+        System.out.println("Pizza added to the BQueue, it contains: " + getSize() + " pizzas.");
     }
-
-
-    // throw new UnsupportedOperationException();
-
-
     /**
      * Retrieves and removes data from the head of the queue
      * Blocking operation if the queue is empty
@@ -62,8 +55,6 @@ public class BQueue<T> {
      * @return the data from the head of the queue
      */
 
-
-    // throw new UnsupportedOperationException();
     public synchronized T poll() {
 
         while (getSize() == 0) {
@@ -71,26 +62,24 @@ public class BQueue<T> {
                 System.out.println("The Bqueue is empty! " + Thread.currentThread().getName() + " must wait until there are pizzas.");
                 wait();
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                //e.printStackTrace();
             }
         }
-        T pizza = queue.poll();
-        notifyAll();
 
         System.out.println("Pizza removed from the BQueue, it contains: " + getSize() + " pizzas.");
-        return pizza;
+        T poll = this.queue.poll();
+        notifyAll();
 
+        return poll;
     }
-
 
     /**
      * Gets the number of elements in the queue
      *
      * @return the number of elements
      */
-    public int getSize() {
-
-        return queue.size();
+    public synchronized int getSize() {
+        return this.queue.size();
     }
 
     /**
@@ -99,16 +88,9 @@ public class BQueue<T> {
      * @return the maximum number of elements
      */
     public int getLimit() {
-
-
-        return limit;
-
+        return this.limit;
     }
-
-    // throw new UnsupportedOperationException();
-
 }
-
 
 /**
  * Gets the maximum number of elements that can be present in the queue

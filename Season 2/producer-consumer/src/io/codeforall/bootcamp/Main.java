@@ -25,12 +25,13 @@ public class Main {
         Thread t4 = new Thread(c2);
         t4.setName("c2");
 
-        t3.start();
-        t4.start();
-
+        // Iniciar os produtores primeiro
         t1.start();
         t2.start();
 
+        // Depois, iniciar os consumidores
+        t3.start();
+        t4.start();
     }
 
 }
