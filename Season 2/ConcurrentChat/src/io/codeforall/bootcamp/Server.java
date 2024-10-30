@@ -20,7 +20,7 @@ public class Server {
         try (ServerSocket serverSocket = new ServerSocket(portNumber)) { // Cria um objeto ServerSocket para escutar conexões na porta especificada
             while (true) {
                 Socket clientSocket = serverSocket.accept(); // aceita a conexão do cliente
-                //System.out.println("To aquiiii");
+                System.out.println("Fala aí!!");
                 ServerWorker worker = new ServerWorker(clientSocket); // Cria um objeto ServerWorker para lidar com a conexão do cliente
                 new Thread(worker).start(); // Inicia uma nova thread para executar o ServerWorker, é preciso para não iniciar só uma vez
             }
