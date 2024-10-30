@@ -9,36 +9,33 @@ public class ServerWorker implements Runnable {
 
     private Socket socket;
 
+    // Construtor para inicializar o objeto ServerWorker com o socket fornecido
     public ServerWorker(Socket socket) {
         this.socket = socket;
     }
 
     @Override
     public void run() {
-            try {
-                BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                String clientMessage;
-
-
-                while ((clientMessage = in.readLine()) != null) {
-                
+        try {
+            // Cria um BufferedReader para ler mensagens do cliente
+            BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            String clientMessage;
+            while ((clientMessage = in.readLine()) != null) { // Lê msgs até que não tenha mais msgs
                 System.out.println(clientMessage);
-
             }
 
-            } catch (IOException ex) {
-                ex.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
 
-            } finally {
-                try {
-                    if (socket != null && !socket.isClosed()) {
-                        socket.close();
-                    }
-                    System.out.println("Conexão com o cliente encerrada.");
-                } catch (IOException e) {
-                    System.err.println("Erro ao fechar o socket: " + e.getMessage());
-
+        } finally {
+            try {
+                if (socket != null && !socket.isClosed()) { // Fecha o socket se estiver aberto
+                    socket.close();
                 }
+                System.out.println("Conexão com o cliente encerrada.");
+            } catch (IOException e) {
+                System.err.println("Erro ao fechar o socket: " + e.getMessage());
             }
+        }
     }
 }

@@ -11,18 +11,18 @@ public class Server {
 
     public static void main(String[] args) {
 
-        Server server = new Server(); //crio um server
-        server.bindSocket(); // server invoca o método bindSocket
+        Server server = new Server(); // cria instância server
+        server.bindSocket(); // invoca o metodo bindSocket para iniciar o server
     }
 
     public void bindSocket() {
 
-        try (ServerSocket serverSocket = new ServerSocket(portNumber)) { // obj que permite ao servidor escutar e aceitar conexões de clientes na porta especificada
+        try (ServerSocket serverSocket = new ServerSocket(portNumber)) { // Cria um objeto ServerSocket para escutar conexões na porta especificada
             while (true) {
                 Socket clientSocket = serverSocket.accept(); // aceita a conexão do cliente
-                System.out.println("To aQuiiii");
-                ServerWorker worker = new ServerWorker(clientSocket); //
-                new Thread(worker).start();
+                //System.out.println("To aquiiii");
+                ServerWorker worker = new ServerWorker(clientSocket); // Cria um objeto ServerWorker para lidar com a conexão do cliente
+                new Thread(worker).start(); // Inicia uma nova thread para executar o ServerWorker, é preciso para não iniciar só uma vez
             }
 
         } catch (IOException e) {
@@ -30,10 +30,3 @@ public class Server {
         }
     }
 }
-
-
-
-
-
-
-
