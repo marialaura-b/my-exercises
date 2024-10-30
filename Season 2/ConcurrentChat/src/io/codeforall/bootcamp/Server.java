@@ -22,7 +22,7 @@ public class Server {
                 Socket clientSocket = serverSocket.accept(); // aceita a conexão do cliente
                 System.out.println("To aQuiiii");
                 ServerWorker worker = new ServerWorker(clientSocket); //
-                new Thread(worker).start(); 
+                new Thread(worker).start();
             }
 
         } catch (IOException e) {
