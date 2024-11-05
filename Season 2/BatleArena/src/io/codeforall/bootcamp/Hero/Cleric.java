@@ -1,15 +1,9 @@
 package io.codeforall.bootcamp.Hero;
 
+import io.codeforall.bootcamp.Abilities.Heal;
+
 public class Cleric extends Hero{
-
-    private int health;
-    private int strength;
-    public Cleric(int health, int strength) {
-        this.health = health;
-        this.strength = strength;
+    public Cleric(String name) {
+        super(100, new Heal(), name);
     }
-
-
-
-
 }

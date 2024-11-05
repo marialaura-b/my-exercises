@@ -1,11 +1,10 @@
 package io.codeforall.bootcamp.Hero;
 
-public class Rogue extends Hero {
+import io.codeforall.bootcamp.Abilities.Fireball;
+import io.codeforall.bootcamp.Abilities.SneakAttack;
 
-    private int health;
-    private int strength;
-    public Rogue (int health, int strength) {
-        this.health = health;
-        this.strength = strength;
+public class Rogue extends Hero {
+    public Rogue (String name) {
+        super(100, new SneakAttack(), name);
     }
 }

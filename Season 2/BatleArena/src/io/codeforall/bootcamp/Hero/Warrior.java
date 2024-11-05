@@ -1,11 +1,10 @@
 package io.codeforall.bootcamp.Hero;
 
-public class Warrior extends Hero{
+import io.codeforall.bootcamp.Abilities.Fireball;
+import io.codeforall.bootcamp.Abilities.ShieldBlock;
 
-    private int health;
-    private int strength;
-    public Warrior (int health, int strength) {
-        this.health = health;
-        this.strength = strength;
+public class Warrior extends Hero{
+    public Warrior (String name) {
+        super(100, new ShieldBlock(), name);
     }
 }

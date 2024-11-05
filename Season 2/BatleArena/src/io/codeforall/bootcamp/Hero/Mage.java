@@ -1,11 +1,9 @@
 package io.codeforall.bootcamp.Hero;
 
-public class Mage extends Hero {
+import io.codeforall.bootcamp.Abilities.Fireball;
 
-    private int health;
-    private int strength;
-    public Mage (int health, int strength) {
-        this.health = health;
-        this.strength = strength;
+public class Mage extends Hero {
+    public Mage (String name) {
+        super(100, new Fireball(), name);
     }
 }
