@@ -7,18 +7,26 @@ public class Main {
         public static void main(String[] args) {
             Prompt prompt = new Prompt(System.in, System.out);
 
+            // Exibe mensagem de boas-vindas
+            System.out.println("Welcome to your first Prompt-View Experience!");
+            System.out.println("Insert your login credentials below:");
 
-            // options that you want to be presented are supplied in an array of strings
-            String[] options = {"Go", "Stay"};
+            // Cria um scanner para o nome de usuário e senha
+            TextIO textIO = TextIoFactory.getTextIO();
 
-            // create a menu with those options and set the message
-            MenuInputScanner scanner = new MenuInputScanner(options);
-            scanner.setMessage("Welcome to your first Prompt-View Experience!");
-            scanner.setMessage("Insert your login credentials below:");
+            // Solicita o nome de usuário
+            String username = textIO.newStringInputReader()
+                    .withDefaultValue("User")
+                    .read("Username:");
 
-            // show the menu to the user and get the selected answer
-            int answerIndex = prompt.getUserInput(scanner);
+            // Solicita a senha (pode ser configurada para ocultar a entrada)
+            String password = textIO.newStringInputReader()
+                    .withMinLength(1)
+                    .withInputMasking(true) // Oculta a senha enquanto é digitada
+                    .read("Password:");
 
-            System.out.println("User wants to " + options[answerIndex - 1]);
+            // Mensagem de confirmação de login
+            System.out.println("\nLogin Successful!");
+            System.out.println("Welcome home, " + username + "!");
         }
 }
