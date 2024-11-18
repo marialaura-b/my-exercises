@@ -3,30 +3,52 @@ package io.codeforall.bootcamp;
 import org.academiadecodigo.bootcamp.Prompt;
 import org.academiadecodigo.bootcamp.scanners.menu.MenuInputScanner;
 
+import java.util.Scanner;
+
 public class Main {
         public static void main(String[] args) {
             Prompt prompt = new Prompt(System.in, System.out);
+            String[] options = new String[]{"opção1", "opção2", "opção3"};
 
-            // Exibe mensagem de boas-vindas
-            System.out.println("Welcome to your first Prompt-View Experience!");
+            MenuInputScanner menuInputScanner = new MenuInputScanner(options);
+            //MenuInputScanner.setMessage("OK");
+            //MenuInputScanner.setError("NOK");
+
+            while(true) {
+
+                int answer = prompt.getUserInput(menuInputScanner);
+                switch (answer){
+                    case 1:
+                        System.out.println("1");
+                        break;
+                    case 2:
+                        System.out.println("2");
+                        break;
+                    case 3:
+                        System.out.println("3");
+                        break;
+                }
+            }
+
+            /*System.out.println("Welcome to your first Prompt-View Experience!");
             System.out.println("Insert your login credentials below:");
 
-            // Cria um scanner para o nome de usuário e senha
-            TextIO textIO = TextIoFactory.getTextIO();
 
-            // Solicita o nome de usuário
-            String username = textIO.newStringInputReader()
-                    .withDefaultValue("User")
-                    .read("Username:");
+            // create a menu with those options and set the message
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Username:");
+            String name = scanner.nextLine();
 
-            // Solicita a senha (pode ser configurada para ocultar a entrada)
-            String password = textIO.newStringInputReader()
-                    .withMinLength(1)
-                    .withInputMasking(true) // Oculta a senha enquanto é digitada
-                    .read("Password:");
+            // Exibe o nome digitado
+            System.out.println("Olá, " + name + "!");
+
+            PasswordInputScanner question2 = new PasswordInputScanner();
+            System.out.println("Password:");
+            String password = question2.getUserInput(scanner);
+
 
             // Mensagem de confirmação de login
             System.out.println("\nLogin Successful!");
-            System.out.println("Welcome home, " + username + "!");
+            System.out.println("Welcome home, " + name + "!");*/
         }
 }
